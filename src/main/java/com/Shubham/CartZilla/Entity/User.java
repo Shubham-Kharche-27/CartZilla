@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "users")
 public class User {
 
     @Id
@@ -29,6 +30,10 @@ public class User {
     private UserVerified isUserVerified;
 
     private LocalDateTime createdAt;
+
+    @OneToOne
+    @JoinColumn(name = "cartId")
+    private Cart cart;
 
     @PrePersist
     public void setUserCreatedAt() {

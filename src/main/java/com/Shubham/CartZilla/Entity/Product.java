@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "product")
 public class Product {
 
     @Id

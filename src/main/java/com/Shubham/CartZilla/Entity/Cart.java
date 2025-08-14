@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "cart")
 public class Cart {
 
     @Id
@@ -17,6 +18,9 @@ public class Cart {
     private int totalQuantity;
     private double totalPrice;
     private LocalDateTime createdAt;
+
+    @OneToOne(mappedBy = "cart")
+    private User user;
 
     @PrePersist
     public void setCreatedAt() {
