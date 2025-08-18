@@ -1,10 +1,14 @@
 package com.Shubham.CartZilla.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -19,8 +23,14 @@ public class Cart {
     private double totalPrice;
     private LocalDateTime createdAt;
 
-    @OneToOne(mappedBy = "cart")
+    @OneToOne
+    @JoinColumn(name = "userId")
+    @JsonManagedReference(value = "cartReference")
     private User user;
+
+    @OneToMany(mappedBy = "cart",cascade =CascadeType.ALL)
+    @JsonBackReference(value = "cartItemReference")
+    private List<CartItem> cartItems = new ArrayList<>();
 
     @PrePersist
     public void setCreatedAt() {

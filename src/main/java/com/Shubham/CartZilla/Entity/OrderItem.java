@@ -1,5 +1,6 @@
 package com.Shubham.CartZilla.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,16 @@ public class OrderItem {
     private double pricePerUnit;
     private Double totalItemPrice;
     private LocalDateTime createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "orderId")
+    @JsonManagedReference(value = "orderItemReference")
+    private Order order;
+
+    @ManyToOne
+    @JoinColumn(name = "productId")
+    @JsonManagedReference(value = "productOrderReference")
+    private Product product;
 
     @PrePersist
     public void setCreatedAt(){

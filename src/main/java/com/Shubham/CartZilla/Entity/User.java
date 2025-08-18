@@ -1,11 +1,14 @@
 package com.Shubham.CartZilla.Entity;
 
 import com.Shubham.CartZilla.Entity.Enums.UserVerified;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -31,9 +34,14 @@ public class User {
 
     private LocalDateTime createdAt;
 
-    @OneToOne
-    @JoinColumn(name = "cartId")
+    @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
+    @JsonBackReference(value = "cartReference")
     private Cart cart;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    @JsonBackReference(value = "orderReference")
+    private List<Order> orders = new ArrayList<>();
+
 
     @PrePersist
     public void setUserCreatedAt() {
