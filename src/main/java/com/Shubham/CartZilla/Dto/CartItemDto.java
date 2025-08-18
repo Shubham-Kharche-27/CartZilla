@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 public class CartItemDto {
 
     private Long cartItemId;
-    private int quantity;
-    private double pricePerUnit;
-    private double totalItemPrice;
+    private Integer quantity;
+    private Double pricePerUnit;
+    private Double totalItemPrice;
     private LocalDateTime createdAt;
     private CartDto cart;
     private ProductDto product;

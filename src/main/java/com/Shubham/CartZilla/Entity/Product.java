@@ -22,9 +22,9 @@ public class Product {
 
     private String productName;
     private String productDesc;
-    private double productPrice;
-    private double productDiscountedPrice;
-    private int stockQuantity;
+    private Double productPrice;
+    private Double productDiscountedPrice;
+    private Integer stockQuantity;
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)

@@ -16,9 +16,9 @@ public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long cartItemId;
-    private int quantity;
-    private double pricePerUnit;
-    private double totalItemPrice;
+    private Integer quantity;
+    private Double pricePerUnit;
+    private Double totalItemPrice;
     private LocalDateTime createdAt;
 
     @ManyToOne

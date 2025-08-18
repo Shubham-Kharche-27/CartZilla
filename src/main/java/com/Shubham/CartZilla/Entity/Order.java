@@ -20,7 +20,7 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
-    private double totalAmount;
+    private Double totalAmount;
     private String shippingAddress;
 
     @Enumerated(EnumType.STRING)

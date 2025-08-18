@@ -16,8 +16,8 @@ public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderItemId;
-    private int quantity;
-    private double pricePerUnit;
+    private Integer quantity;
+    private Double pricePerUnit;
     private Double totalItemPrice;
     private LocalDateTime createdAt;
 

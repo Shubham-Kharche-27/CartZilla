@@ -14,9 +14,9 @@ public class ProductDto {
     private Long productId;
     private String productName;
     private String productDesc;
-    private double productPrice;
-    private double productDiscountedPrice;
-    private int stockQuantity;
+    private Double productPrice;
+    private Double productDiscountedPrice;
+    private Integer stockQuantity;
     private LocalDateTime createdAt;
     private CategoryDto category;
 
