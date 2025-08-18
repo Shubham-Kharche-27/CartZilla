@@ -3,9 +3,15 @@ package com.Shubham.CartZilla.Dto;
 import com.Shubham.CartZilla.Entity.Enums.UserVerified;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Pattern;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
+@Getter
+@Setter
 public class UserDto {
 
     private Long userId;
@@ -24,5 +30,4 @@ public class UserDto {
 
     private UserVerified isUserVerified;
     private LocalDateTime createdAt;
-    private Long cartId;
 }
